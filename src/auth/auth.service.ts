@@ -34,11 +34,11 @@ export class AuthService {
 
     const hashPassword = await bcrypt.hash(dto.password, 5);
 
-    const user = await this.userService.create({
+    await this.userService.create({
       ...dto,
       password: hashPassword,
     });
-    return this.generateToken(user);
+    return new HttpException('Пользователь успешно авторизован', HttpStatus.OK);
   }
 
   private async generateToken(user: UserEntity) {
