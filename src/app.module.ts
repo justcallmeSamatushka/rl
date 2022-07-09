@@ -21,11 +21,11 @@ import { UserEntity } from "./users/entity/users-entity";
       useFactory: (config: ConfigService): TypeOrmModuleOptions => {
         return {
           type: 'postgres',
-          host: config.get('POSTGRES_HOST'),
-          port: config.get<number>('POSTGRES_PORT'),
-          username: config.get('POSTGRES_USERNAME'),
-          password: config.get('POSTGRES_PASSWORD'),
-          database: config.get('POSTGRES_DATABASE'),
+          host: config.get('PGHOST'),
+          port: config.get<number>('PGPORT'),
+          username: config.get('PGUSER'),
+          password: config.get('PGPASSWORD'),
+          database: config.get('PGDATABASE'),
           entities: [UserEntity],
           synchronize: config.get('NODE_ENV') === 'dev',
           autoLoadEntities: true,
