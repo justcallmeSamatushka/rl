@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { IUser } from '../interfaces/users-interface';
 
 @Entity({
-  name: 'users',
+  name: 'user',
 })
 export class UserEntity implements IUser {
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
