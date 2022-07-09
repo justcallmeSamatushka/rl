@@ -38,7 +38,11 @@ export class AuthService {
       ...dto,
       password: hashPassword,
     });
-    return new HttpException('Пользователь успешно авторизован', HttpStatus.OK);
+
+    return {
+      message:'Пользователь успешно зарегистрирован',
+      status: HttpStatus.OK
+    };
   }
 
   private async generateToken(user: UserEntity) {
