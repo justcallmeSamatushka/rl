@@ -18,6 +18,8 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
+  app.enableCors();
+
   await app.listen(PORT, () => {
     Logger.log(`Server has been started on PORT: ${PORT}`);
   });
