@@ -16,14 +16,13 @@ import { UserEntity } from "./users/entity/users-entity";
         envFilePath: `.${process.env.NODE_ENV}.env`,
       })],
       useFactory: (config: ConfigService): TypeOrmModuleOptions => {
-        console.log("config", config.get("PGHOST"));
         return {
           type: 'postgres',
-          host: config.get('PGHOST'),
-          port: config.get<number>('PGPORT'),
-          username: config.get('PGUSER'),
-          password: config.get('PGPASSWORD'),
-          database: config.get('PGDATABASE'),
+          host: 'discoverystudio.xyz',
+          port: 5432,
+          username: 'postgres',
+          password: 'root1234',
+          database: 'sam_db',
           entities: [UserEntity],
           synchronize: config.get('NODE_ENV') === 'dev',
           autoLoadEntities: true,
